@@ -215,7 +215,7 @@ VOID ReadMem(UINT32 insAddr, std::string insDis, UINT32 OperandCount,REG reg_r, 
     return;
   for(i = addressTainted.begin(); i != addressTainted.end(); i++){
       if (addr == *i){
- 		if(insAddr<=0x8049000)
+ 	if(insAddr<=0x8049000)
         	std::cout << std::hex <<insAddr<< ":\t"  <<"[READ in " << addr << "][T]" <<" insDis:"<<insDis<< std::endl;
         taintReg(reg_r);
         return ;
@@ -255,7 +255,7 @@ VOID WriteMem(UINT32 insAddr, std::string insDis, UINT32 OperandCount,REG reg_r,
   for(i = addressTainted.begin(); i != addressTainted.end(); i++){
       if (addr == *i){
       	if(insAddr<=0x8049000)
-			std::cout << std::hex << insAddr<< ":\t"  <<"[WRITE in " << addr << "][F]" << " insDis:"<<insDis<< std::endl;
+		std::cout << std::hex << insAddr<< ":\t"  <<"[WRITE in " << addr << "][F]" << " insDis:"<<insDis<< std::endl;
           //std::cout << std::hex << reg_r<< std::endl;
         if (!REG_valid(reg_r) || !checkAlreadyRegTainted(reg_r))
         {
