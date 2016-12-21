@@ -1,0 +1,17 @@
+步骤：
+Step1：安装实验环境。
+首先, 你需要安装插桩工具PIN， PIN tool的下载地址: https://software.intel.com/en-us/articles/pin-a-binary-instrumentation-tool-downloads
+其次，实验中遇到的工具使用问题请参考[注1]和[注2]。
+
+Step2：
+example1：(考察点：染色覆盖，运算染色跟踪，指针传播)在PIN平台下编写染色分析代码，使用该代码跟踪exam1程序，exam1程序需要两次输入，输入要求如下：
+第一次输入：10
+第二次输入：20
+请在染色执行结束后输出数据段内的所有被染色的内存地址，请把被染色地址从小到大排序后按照16进制格式输出。
+
+example2：（考察点：函数指针被染色）在PIN平台下编写染色分析代码，使用该代码跟踪exam2程序，检测间接调用函数指针被染色的情况。首先，运行exam2，程序输出五个int型数据，分别尝试使用五个输出数据的一个作为第一次输入，第二次输入随意选择，通过染色分析判断那次会导致间接调用的函数指针被染色。提示：每次执行”call eax”指令时检查eax是否被染色。
+
+注1：PIN的官方网站：
+https://software.intel.com/sites/landingpage/pintool/docs/71313/Pin/html/index.html
+注2：PIN的API文档：
+https://software.intel.com/sites/landingpage/pintool/docs/71313/Pin/html/group__PIN__SYSCALL__API.html
