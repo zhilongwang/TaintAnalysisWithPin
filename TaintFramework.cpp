@@ -46,7 +46,7 @@ VOID printTaintMemory(){
 	list<UINT32>::iterator i;
 	addressTainted.unique();
 	for(i = addressTainted.begin(); i != addressTainted.end(); i++){
-		//if(*i>=0x8048000&&*i<=0x804b000){
+		if(*i>=0x8048000&&*i<=0x804b000){
 			std::cout << std::hex<<"\t"<< *i;
 
 			count++;
@@ -54,7 +54,7 @@ VOID printTaintMemory(){
 				count=0;
 				std::cout << std::endl;
 			}
-		//}
+		}
 	}
 	std::cout << std::hex << "\n\t" << "*****************Tainted memory in data section*****************" << std::endl;
 }
