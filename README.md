@@ -1,2 +1,6 @@
 # TaintAnalysisWithPin
-利用intel公司的插桩工具pin做染色分析
+Taint analysis with pin tool.
+First. 
+  The TaintFrame.cpp is a taint analysis code.
+Second.
+  The CheckTheTaintedFunctionPointer.cpp is a taint code to check the Function pointer is tampered with the input。
