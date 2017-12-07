@@ -200,17 +200,6 @@ VOID ReadMem(UINT32 insAddr, std::string insDis, UINT32 OperandCount,REG reg_r, 
 {
   list<UINT32>::iterator i;
   UINT32 addr = memOp;
-  /*if(insAddr>=0x804848a&&insAddr<=0x81484ee){
-  		std::cout << std::hex<< "************" << std::endl;
-  std::cout << std::hex << "insAddr:" << insAddr<< std::endl;
-  std::cout << std::hex << "insDis:" << insDis<< std::endl;
-  std::cout << std::hex << "OperandCount:" << OperandCount<< std::endl;
-  std::cout << std::hex << "memOp:" << memOp << std::endl;
-  std::cout << std::hex<< "sp:" << sp << std::endl;
-  std::cout << std::hex<< "reg_r:" <<reg_r << std::endl;
-  std::cout << std::hex<< "************" << std::endl;
-  }*/
-
   if (OperandCount != 2)
     return;
   for(i = addressTainted.begin(); i != addressTainted.end(); i++){
@@ -234,10 +223,8 @@ VOID WriteMem(UINT32 insAddr, std::string insDis, UINT32 OperandCount,REG reg_r,
   list<UINT32>::iterator i;
   UINT32 addr = memOp;
   UINT32 length=0;
-
   if (OperandCount != 2)
     return;
-
   if(!REG_valid(reg_r)){
     if(REG_valid(reg_0)){
   	  reg_r=reg_0;
@@ -318,22 +305,15 @@ VOID mulOper(UINT32 insAddr, std::string insDis, UINT32 OperandCount,REG reg_r, 
     {
       if(insAddr<=0x8049000)
       	  std::cout <<std::hex <<insAddr<< ":\t"  <<"[SPREAD][T]" <<" insDis:"<<insDis<< std::endl;
-      //std::cout << "\t\t\toutput: " << REG_StringShort(reg_w) << " | input: "<< REG_StringShort(reg_r) << std::endl;
       taintReg(reg_w);
       taintReg(REG_EDX);
     }
   }
-    
-
 }
 
 
 VOID Instruction(INS ins, VOID *v)
 {
-   //if(INS_Address(ins)>0x804848a&&INS_Address(ins)<=0x80484ee){
-   //std::cout  <<std::hex<<"[ "<<INS_Address(ins) << " ]insDis:" << string(INS_Disassemble(ins)) << std::endl;
-   //}
-
   if (INS_OperandCount(ins) > 1 && INS_MemoryOperandIsRead(ins, 0) /*&& INS_OperandIsReg(ins, 0)*/){
     INS_InsertCall(
         ins, IPOINT_BEFORE, (AFUNPTR)ReadMem,
@@ -391,20 +371,13 @@ VOID Syscall_entry(THREADID thread_id, CONTEXT *ctx, SYSCALL_STANDARD std, void 
 {
   unsigned int i;
   UINT32 start, size;
-
   if (PIN_GetSyscallNumber(ctx, std) == __NR_read){
-
       TRICKS(); /* tricks to ignore the first open */
-
       start = static_cast<UINT64>((PIN_GetSyscallArgument(ctx, std, 1)));
       size  = static_cast<UINT64>((PIN_GetSyscallArgument(ctx, std, 2)));
-
       for (i = 0; i < size; i++)
         addressTainted.push_back(start+i);
-
-     
       std::cout << "[TAINT]\t\t\tbytes tainted from " << std::hex << "0x" << start << " to 0x" << start+size << " (via read)"<< std::endl;
-      
   }
 }
 VOID Fini(INT32 code, VOID *v)
@@ -417,13 +390,11 @@ int main(int argc, char *argv[])
     if(PIN_Init(argc, argv)){
         return Usage();
     }
-    
     PIN_SetSyntaxIntel();
     PIN_AddSyscallEntryFunction(Syscall_entry, 0);
     INS_AddInstrumentFunction(Instruction, 0);
     PIN_AddFiniFunction(Fini, 0);
     PIN_StartProgram();
-    
     return 0;
 }
 
