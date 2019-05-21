@@ -1,0 +1,704 @@
+memread addr:b7772f7c
+memread addr:b7772f9c
+memread addr:b7752748
+memread addr:b7752750
+memread addr:b7752758
+memread addr:b7752760
+memread addr:b7752768
+memread addr:b7752770
+memread addr:b7752778
+memread addr:b7752780
+memread addr:b7752788
+memread addr:b7752790
+memread addr:b7752798
+memread addr:b7772f2c
+memread addr:8049fb0
+memread addr:bf815dd8
+memread addr:b776af15
+memread addr:b776af2e
+memread addr:b776af34
+memread addr:b7772e90
+memread addr:bf815dd8
+memread addr:bf815934
+memread addr:b7772f18
+memread addr:bf815974
+memread addr:bf815972
+memread addr:bf81598a
+memread addr:bf815994
+memread addr:bf8159b4
+memread addr:bf8159d4
+memread addr:bf8159f4
+memread addr:bf815a14
+memread addr:bf815a34
+memread addr:bf815a50
+memread addr:bf815858
+memread addr:bf815858
+memread addr:bf815834
+memread addr:bf815853
+memread addr:b4d85e34
+memread addr:bf815834
+memread addr:b7773864
+memread addr:b777308c
+memread addr:b7773b6c
+memread addr:b7773e5c
+memread addr:b4e173e4
+memread addr:b7773790
+memread addr:b7773888
+memread addr:bf815dbc
+memread addr:b7773888
+memread addr:bf815de8
+memread addr:b4daa70c
+memread addr:b4d86c66
+memread addr:b4daa70c
+memread addr:b4daa70c
+memread addr:b4daa70c
+[TAINT]			bytes tainted from 0xb4b33000 to 0xb4b33400 (via read)
+[b4c48e28][LOAD__T][REG_EAX] ACCESS:[b4b33000] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:b4c49ce9
+[b4c49cee][LOAD__F][REG_EAX] ACCESS:[b4d86c24] insDis:[mov eax, dword ptr [esi+0x4]]
+			eax is now freed
+[b4c49cf7][LOAD__T][REG_EAX] ACCESS:[b4b33000] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[b4c406dc][SPREE_T][REG_EDX] insDis:[mov edx, eax]
+			edx is now tainted
+memread addr:b4daa70c
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804852c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804852f][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[8048534][LOAD__T][REG_EAX] ACCESS:[bf815e2b] insDis:[movzx eax, byte ptr [ebp-0xd]]
+			eax is now tainted
+[8048538][STORE_T][1] ACCESS:[bf815e50] insDis:[mov byte ptr [edx], al]
+			bf815e50[1] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+memread addr:b4daa70c
+[b4c4069b][LOAD__T][REG_EDX] ACCESS:[b4b33001] insDis:[movzx edx, byte ptr [eax]]
+			edx is now tainted
+memread addr:b4daa70c
+[b4c406c9][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804852c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804852f][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[8048534][LOAD__T][REG_EAX] ACCESS:[bf815e2b] insDis:[movzx eax, byte ptr [ebp-0xd]]
+			eax is now tainted
+[8048538][STORE_T][1] ACCESS:[bf815e51] insDis:[mov byte ptr [edx], al]
+			bf815e51[1] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+memread addr:b4daa70c
+[b4c4069b][LOAD__T][REG_EDX] ACCESS:[b4b33002] insDis:[movzx edx, byte ptr [eax]]
+			edx is now tainted
+memread addr:b4daa70c
+[b4c406c9][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804854c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804854f][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+memread addr:bf815e40
+[8048474][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:8048477
+[804847b][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[804847e][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:8048481
+[80484f0][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484f3][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484f6][SPREE_T][REG_EFLAGS] insDis:[test al, al]
+			eflags is now tainted
+[80484b7][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484ba][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484bd
+[80484c1][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484c4][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484c7
+[80484ce][SPREE_F][REG_EAX] insDis:[mov eax, edx]
+			eax is now freed
+[80484e2][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484ed][STORE_T][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], eax]
+			bf815e30[4] is now tainted
+[80484f0][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484f3][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484b7][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484ba][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484bd
+[80484c1][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484c4][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484c7
+[80484cb][LOAD__T][REG_EDX] ACCESS:[bf815e30] insDis:[mov edx, dword ptr [ebp-0x8]]
+			edx is now tainted
+[80484d7][SPREE_T][REG_ECX] insDis:[mov ecx, eax]
+			ecx is now tainted
+[80484d9][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484df][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [ebp+0x8], edx]
+			bf815e40[4] is now tainted
+[80484e2][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484ed][STORE_T][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], eax]
+			bf815e30[4] is now tainted
+[80484f0][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484f3][LOAD__F][REG_EAX] ACCESS:[bf815e52] insDis:[movzx eax, byte ptr [eax]]
+			eax is now freed
+[80484f6][SPREE_F][REG_EFLAGS] insDis:[test al, al]
+			eflags is now freed
+[80484fa][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now tainted
+[80484fd][LOAD__F][REG_EAX] ACCESS:[bf815e52] insDis:[movzx eax, byte ptr [eax]]
+			eax is now freed
+memread addr:bf815e34
+[8048518][LOAD__T][REG_EAX] ACCESS:[bf815e30] insDis:[mov eax, dword ptr [ebp-0x8]]
+			eax is now tainted
+[8048585][STORE_T][4] ACCESS:[bf815e64] insDis:[mov dword ptr [esp+0x24], eax]
+			bf815e64[4] is now tainted
+[804858d][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [esp], eax]
+			bf815e40[4] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+[b4c40649][SPREE_F][REG_EDX] insDis:[mov edx, esi]
+			edx is now freed
+memread addr:b4daa70c
+memread addr:b4d86c66
+[b4c48d3a][SPREE_F][REG_ECX] insDis:[mov ecx, edi]
+			ecx is now freed
+memread addr:b4daa70c
+memread addr:b4daa70c
+memread addr:b4daa70c
+[TAINT]			bytes tainted from 0xb4b33000 to 0xb4b33400 (via read)
+[b4c48e28][LOAD__T][REG_EAX] ACCESS:[b4b33000] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:b4c49ce9
+[b4c49cee][LOAD__F][REG_EAX] ACCESS:[b4d86c24] insDis:[mov eax, dword ptr [esi+0x4]]
+			eax is now freed
+[b4c49cf7][LOAD__T][REG_EAX] ACCESS:[b4b33000] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[b4c406dc][SPREE_T][REG_EDX] insDis:[mov edx, eax]
+			edx is now tainted
+memread addr:b4daa70c
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804852c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804852f][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048534][LOAD__T][REG_EAX] ACCESS:[bf815e2b] insDis:[movzx eax, byte ptr [ebp-0xd]]
+			eax is already tainted
+[8048538][STORE_T][1] ACCESS:[bf815e50] insDis:[mov byte ptr [edx], al]
+			bf815e50[1] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+memread addr:b4daa70c
+[b4c4069b][LOAD__T][REG_EDX] ACCESS:[b4b33001] insDis:[movzx edx, byte ptr [eax]]
+			edx is now tainted
+memread addr:b4daa70c
+[b4c406c9][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804852c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804852f][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048534][LOAD__T][REG_EAX] ACCESS:[bf815e2b] insDis:[movzx eax, byte ptr [ebp-0xd]]
+			eax is already tainted
+[8048538][STORE_T][1] ACCESS:[bf815e51] insDis:[mov byte ptr [edx], al]
+			bf815e51[1] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+memread addr:b4daa70c
+[b4c4069b][LOAD__T][REG_EDX] ACCESS:[b4b33002] insDis:[movzx edx, byte ptr [eax]]
+			edx is now tainted
+memread addr:b4daa70c
+[b4c406c9][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804854c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804854f][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048557][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048599][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [esp], eax]
+			bf815e40[4] is now tainted
+memread addr:bf815e40
+TYPE5:taint_branch:8048453
+[804846a][STORE_F][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], 0x0]
+			bf815e30[4] is now freed
+[8048471][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048474][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:8048477
+[804847b][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[804847e][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:8048481
+[80484f0][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484f3][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+[80484f6][SPREE_T][REG_EFLAGS] insDis:[test al, al]
+			eflags is now tainted
+[80484b7][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484ba][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:80484bd
+[80484c1][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484c4][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:80484c7
+[80484ce][SPREE_F][REG_EAX] insDis:[mov eax, edx]
+			eax is now freed
+[80484d9][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now tainted
+[80484df][STORE_F][4] ACCESS:[bf815e40] insDis:[mov dword ptr [ebp+0x8], edx]
+			bf815e40[4] is now freed
+[80484e2][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+[80484ed][STORE_T][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], eax]
+			bf815e30[4] is now tainted
+[80484f0][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484f3][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484b7][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484ba][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484bd
+[80484c1][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484c4][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484c7
+[80484cb][LOAD__T][REG_EDX] ACCESS:[bf815e30] insDis:[mov edx, dword ptr [ebp-0x8]]
+			edx is now tainted
+[80484d7][SPREE_T][REG_ECX] insDis:[mov ecx, eax]
+			ecx is now tainted
+[80484d9][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484df][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [ebp+0x8], edx]
+			bf815e40[4] is now tainted
+[80484e2][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484ed][STORE_T][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], eax]
+			bf815e30[4] is now tainted
+[80484f0][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484f3][LOAD__F][REG_EAX] ACCESS:[bf815e52] insDis:[movzx eax, byte ptr [eax]]
+			eax is now freed
+[80484f6][SPREE_F][REG_EFLAGS] insDis:[test al, al]
+			eflags is now freed
+[80484fa][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now tainted
+[80484fd][LOAD__F][REG_EAX] ACCESS:[bf815e52] insDis:[movzx eax, byte ptr [eax]]
+			eax is now freed
+memread addr:bf815e34
+[8048518][LOAD__T][REG_EAX] ACCESS:[bf815e30] insDis:[mov eax, dword ptr [ebp-0x8]]
+			eax is now tainted
+[80485a1][STORE_T][4] ACCESS:[bf815e68] insDis:[mov dword ptr [esp+0x28], eax]
+			bf815e68[4] is now tainted
+[80485a9][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [esp], eax]
+			bf815e40[4] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+[b4c40649][SPREE_F][REG_EDX] insDis:[mov edx, esi]
+			edx is now freed
+memread addr:b4daa70c
+memread addr:b4d86c66
+[b4c48d3a][SPREE_F][REG_ECX] insDis:[mov ecx, edi]
+			ecx is now freed
+memread addr:b4daa70c
+memread addr:b4daa70c
+memread addr:b4daa70c
+[TAINT]			bytes tainted from 0xb4b33000 to 0xb4b33400 (via read)
+[b4c48e28][LOAD__T][REG_EAX] ACCESS:[b4b33000] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:b4c49ce9
+[b4c49cee][LOAD__F][REG_EAX] ACCESS:[b4d86c24] insDis:[mov eax, dword ptr [esi+0x4]]
+			eax is now freed
+[b4c49cf7][LOAD__T][REG_EAX] ACCESS:[b4b33000] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[b4c406dc][SPREE_T][REG_EDX] insDis:[mov edx, eax]
+			edx is now tainted
+memread addr:b4daa70c
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804852c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804852f][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048534][LOAD__T][REG_EAX] ACCESS:[bf815e2b] insDis:[movzx eax, byte ptr [ebp-0xd]]
+			eax is already tainted
+[8048538][STORE_T][1] ACCESS:[bf815e50] insDis:[mov byte ptr [edx], al]
+			bf815e50[1] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+memread addr:b4daa70c
+[b4c4069b][LOAD__T][REG_EDX] ACCESS:[b4b33001] insDis:[movzx edx, byte ptr [eax]]
+			edx is now tainted
+memread addr:b4daa70c
+[b4c406c9][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804852c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804852f][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048534][LOAD__T][REG_EAX] ACCESS:[bf815e2b] insDis:[movzx eax, byte ptr [ebp-0xd]]
+			eax is already tainted
+[8048538][STORE_T][1] ACCESS:[bf815e51] insDis:[mov byte ptr [edx], al]
+			bf815e51[1] is now tainted
+[b4c40647][LOAD__F][REG_EAX] ACCESS:[b4d86c20] insDis:[mov eax, dword ptr [esi]]
+			eax is now freed
+memread addr:b4daa70c
+[b4c4069b][LOAD__T][REG_EDX] ACCESS:[b4b33002] insDis:[movzx edx, byte ptr [eax]]
+			edx is now tainted
+memread addr:b4daa70c
+[b4c406c9][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[8048543][STORE_T][1] ACCESS:[bf815e2b] insDis:[mov byte ptr [ebp-0xd], al]
+			bf815e2b[1] is now tainted
+memread addr:bf815e2b
+TYPE5:taint_branch:8048546
+[804854c][LOAD__F][REG_EDX] ACCESS:[bf815e2c] insDis:[mov edx, dword ptr [ebp-0xc]]
+			edx is now freed
+[804854f][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048557][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80485b5][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [esp], eax]
+			bf815e40[4] is now tainted
+[80485bd][STORE_T][4] ACCESS:[bf815e78] insDis:[mov dword ptr [esp+0x38], eax]
+			bf815e78[4] is now tainted
+[80485c5][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [esp], eax]
+			bf815e40[4] is now tainted
+memread addr:bf815e40
+TYPE5:taint_branch:8048453
+[804846a][STORE_F][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], 0x0]
+			bf815e30[4] is now freed
+[8048471][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[8048474][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:8048477
+[804847b][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[804847e][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:8048481
+[80484f0][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484f3][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+[80484f6][SPREE_T][REG_EFLAGS] insDis:[test al, al]
+			eflags is now tainted
+[80484b7][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484ba][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:80484bd
+[80484c1][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484c4][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+TYPE4:taint_branch:80484c7
+[80484ce][SPREE_F][REG_EAX] insDis:[mov eax, edx]
+			eax is now freed
+[80484d9][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now tainted
+[80484df][STORE_F][4] ACCESS:[bf815e40] insDis:[mov dword ptr [ebp+0x8], edx]
+			bf815e40[4] is now freed
+[80484e2][LOAD__T][REG_EAX] ACCESS:[bf815e50] insDis:[movzx eax, byte ptr [eax]]
+			eax is already tainted
+[80484ed][STORE_T][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], eax]
+			bf815e30[4] is now tainted
+[80484f0][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484f3][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484b7][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484ba][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484bd
+[80484c1][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484c4][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+TYPE4:taint_branch:80484c7
+[80484cb][LOAD__T][REG_EDX] ACCESS:[bf815e30] insDis:[mov edx, dword ptr [ebp-0x8]]
+			edx is now tainted
+[80484d7][SPREE_T][REG_ECX] insDis:[mov ecx, eax]
+			ecx is now tainted
+[80484d9][LOAD__F][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now freed
+[80484df][STORE_T][4] ACCESS:[bf815e40] insDis:[mov dword ptr [ebp+0x8], edx]
+			bf815e40[4] is now tainted
+[80484e2][LOAD__T][REG_EAX] ACCESS:[bf815e51] insDis:[movzx eax, byte ptr [eax]]
+			eax is now tainted
+[80484ed][STORE_T][4] ACCESS:[bf815e30] insDis:[mov dword ptr [ebp-0x8], eax]
+			bf815e30[4] is now tainted
+[80484f0][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is already tainted
+[80484f3][LOAD__F][REG_EAX] ACCESS:[bf815e52] insDis:[movzx eax, byte ptr [eax]]
+			eax is now freed
+[80484f6][SPREE_F][REG_EFLAGS] insDis:[test al, al]
+			eflags is now freed
+[80484fa][LOAD__T][REG_EAX] ACCESS:[bf815e40] insDis:[mov eax, dword ptr [ebp+0x8]]
+			eax is now tainted
+[80484fd][LOAD__F][REG_EAX] ACCESS:[bf815e52] insDis:[movzx eax, byte ptr [eax]]
+			eax is now freed
+memread addr:bf815e34
+[8048518][LOAD__T][REG_EAX] ACCESS:[bf815e30] insDis:[mov eax, dword ptr [ebp-0x8]]
+			eax is now tainted
+[80485cd][STORE_T][4] ACCESS:[bf815e6c] insDis:[mov dword ptr [esp+0x2c], eax]
+			bf815e6c[4] is now tainted
+[80485d1][STORE_F][4] ACCESS:[bf815e6c] insDis:[mov dword ptr [esp+0x2c], 0x20]
+			bf815e6c[4] is now freed
+[80485d9][LOAD__F][REG_EAX] ACCESS:[bf815e6c] insDis:[mov eax, dword ptr [esp+0x2c]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[80485fa][SPREE_T][REG_EFLAGS] insDis:[test eax, eax]
+			eflags is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[80485fe][LOAD__T][REG_EDX] ACCESS:[bf815e64] insDis:[mov edx, dword ptr [esp+0x24]]
+			edx is already tainted
+[8048602][LOAD__F][REG_EAX] ACCESS:[bf815e7c] insDis:[mov eax, dword ptr [esp+0x3c]]
+			eax is now freed
+[8048606][STORE_T][4] ACCESS:[bf815e74] insDis:[mov dword ptr [esp+eax*4+0x24], edx]
+			bf815e74[4] is now tainted
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[80485fe][LOAD__T][REG_EDX] ACCESS:[bf815e64] insDis:[mov edx, dword ptr [esp+0x24]]
+			edx is already tainted
+[8048602][LOAD__F][REG_EAX] ACCESS:[bf815e7c] insDis:[mov eax, dword ptr [esp+0x3c]]
+			eax is now freed
+[8048606][STORE_T][4] ACCESS:[bf815e84] insDis:[mov dword ptr [esp+eax*4+0x24], edx]
+			bf815e84[4] is now tainted
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[80485fe][LOAD__T][REG_EDX] ACCESS:[bf815e64] insDis:[mov edx, dword ptr [esp+0x24]]
+			edx is already tainted
+[8048602][LOAD__F][REG_EAX] ACCESS:[bf815e7c] insDis:[mov eax, dword ptr [esp+0x3c]]
+			eax is now freed
+[8048606][STORE_T][4] ACCESS:[bf815ea4] insDis:[mov dword ptr [esp+eax*4+0x24], edx]
+			bf815ea4[4] is now tainted
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[80485f8][SPREE_T][REG_EAX] insDis:[mov eax, edx]
+			eax is now tainted
+[804860f][LOAD__F][REG_EAX] ACCESS:[bf815e70] insDis:[mov eax, dword ptr [esp+0x30]]
+			eax is now freed
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is now tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+[8048623][LOAD__T][REG_EAX] ACCESS:[bf815e68] insDis:[mov eax, dword ptr [esp+0x28]]
+			eax is already tainted
+[8048655][LOAD__T][REG_EAX] ACCESS:[bf815e64] insDis:[mov eax, dword ptr [esp+0x24]]
+			eax is already tainted
+			bf815e90[4] is now tainted
+			bf815e78[4] is now freed
+			bf815e74[4] is now tainted
+			eax is already tainted
+			bf815e70[4] is now tainted
+			edx is now freed
+			ecx is now freed
+			eax is now freed
+			eflags is now freed
+memread addr:804a024
+			ebx is now tainted
+
+	*****************Tainted memory in data section*****************
+
+	*****************Tainted memory in data section*****************
+
+	*****************Tainted Cmp Instruction Address*****************
+	8048453cmp dword ptr [ebp+0x8], 0x00xb6b75304
+	8048477cmp al, 0x2f0xb6b75304
+	8048481cmp al, 0x390xb6b75304
+	80484bdcmp al, 0x2f0xb6b75304
+	80484c7cmp al, 0x390xb6b75304
+	8048546cmp byte ptr [ebp-0xd], 0xa0xb6b75304
+
+	*****************Tainted Cmp Instruction Address*****************
