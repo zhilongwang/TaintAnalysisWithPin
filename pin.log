@@ -1,0 +1,3 @@
+Pin: pin-3.7-97619-0d0c92f4f
+Copyright (c) 2003-2018, Intel Corporation. All rights reserved.
+E:  src/taint.cpp:130: Cannot use IARG_MEMORYREAD_EA for ins without memory read (     5 0x5656f438 push eax)

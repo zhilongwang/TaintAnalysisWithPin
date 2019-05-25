@@ -13,11 +13,11 @@ endif
 #include $(CONFIG_ROOT)/makefile.config
 #include makefile.rules 
 #include $(TOOLS_ROOT)/Config/makefile.default.rules
-INCLUDE_PATH = -Iinclude -I../../../source/include/pin -I../../../source/include/pin/gen -isystem /home/wzl/pin/extras/stlport/include -isystem /home/wzl/pin/extras/libstdc++/include -isystem /home/wzl/pin/extras/crt/include -isystem /home/wzl/pin/extras/crt/include/arch-x86 -isystem /home/wzl/pin/extras/crt/include/kernel/uapi -isystem /home/wzl/pin/extras/crt/include/kernel/uapi/asm-x86 -I../../../extras/components/include -I../../../extras/xed-ia32/include/xed -I../../../source/tools/InstLib
-CXXFLAGS = -g3 -Wall  -Wno-unknown-pragmas -D__PIN__=1 -DPIN_CRT=1 -fno-stack-protector -fno-exceptions -funwind-tables -fasynchronous-unwind-tables -fno-rtti -DTARGET_IA32 -DHOST_IA32 -DTARGET_LINUX -fabi-version=2  -O3 -fomit-frame-pointer -fno-strict-aliasing -m32 
+INCLUDE_PATH = -I../../../source/include/pin -I../../../source/include/pin/gen -isystem /home/wzl/pin/extras/stlport/include -isystem /home/wzl/pin/extras/libstdc++/include -isystem /home/wzl/pin/extras/crt/include -isystem /home/wzl/pin/extras/crt/include/arch-x86 -isystem /home/wzl/pin/extras/crt/include/kernel/uapi -isystem /home/wzl/pin/extras/crt/include/kernel/uapi/asm-x86 -I../../../extras/components/include -I../../../extras/xed-ia32/include/xed -I../../../source/tools/InstLib
+CXXFLAGS = -Wall  -Wno-unknown-pragmas -D__PIN__=1 -DPIN_CRT=1 -fno-stack-protector -fno-exceptions -funwind-tables -fasynchronous-unwind-tables -fno-rtti -DTARGET_IA32 -DHOST_IA32 -DTARGET_LINUX -fabi-version=2  -O3 -fomit-frame-pointer -fno-strict-aliasing -m32 
 ISYSTEM_PATH = -isystem ../../../extras/stlport/include -isystem ../../../extras/libstdc++/include -isystem ../../../extras/crt/include -isystem ../../../extras/crt/include/arch-x86_64 -isystem ../../../extras/crt/include/kernel/uapi -isystem ../../../extras/crt/include/kernel/uapi/asm-x86
 LD_PATH = -L../../../ia32/runtime/pincrt -L../../../ia32/lib -L../../../ia32/lib-ext -L../../../extras/xed-ia32/lib -lpin -lxed ../../../ia32/runtime/pincrt/crtendS.o -lpin3dwarf  -ldl-dynamic -nostdlib -lstlport-dynamic -lm-dynamic -lc-dynamic -lunwind-dynamic
-LD_FLAGS = -g3 -shared -Wl,--hash-style=sysv ../../../ia32/runtime/pincrt/crtbeginS.o -Wl,-Bsymbolic -Wl,--version-script=../../../source/include/pin/pintool.ver -fabi-version=2 -m32
+LD_FLAGS = -shared -Wl,--hash-style=sysv ../../../ia32/runtime/pincrt/crtbeginS.o -Wl,-Bsymbolic -Wl,--version-script=../../../source/include/pin/pintool.ver -fabi-version=2 -m32
 OBJDIR = obj-ia32
 OBJECTS = ${addprefix src/, ${patsubst %.cpp,%.o, ${filter %.cpp,${shell ls src/}}}} 
 VPATH = src:include
@@ -27,9 +27,6 @@ ${OBJDIR}/taint.so : $(OBJECTS)
 
 $(OBJECTS) : %.o: %.cpp 
 	g++ ${INCLUDE_PATH} ${CXXFLAGS}  ${ISYSTEM_PATH} -c -o $@ $<
-
-run:
-	 ../../../pin -t obj-ia32/taint.so -- test/test
 
 clean:
 	rm -rf src/*.o
