@@ -1,9 +1,15 @@
 #include "register.h"
+#include "debug.h"
 #include<string>
 #include<iostream>
 using std::string;
 using std::iostream;
 
+#ifdef __DEBUG_ANALYIZE
+#define D(x) x
+#else 
+#define D(x)
+#endif
 string GetREGName(REG reg){
   string reg_name; 
 	reg_name="UNKnowReg:"+reg; 
@@ -96,8 +102,7 @@ bool ShadowReg::checkREG(REG reg)
 bool ShadowReg::taintREG(REG reg)
 {
 	if (shadow_reg_[reg] == true){
-		cout << "\t\t\t" << REG_StringShort(reg) << " is already tainted" << endl;
-		return false;
+		D(cout << "\t\t\t--" << REG_StringShort(reg) << " is already tainted" << endl;)
 	}
 
 	switch(reg){
@@ -105,7 +110,7 @@ bool ShadowReg::taintREG(REG reg)
 		//case REG_RAX:  regsTainted.push_front(REG_RAX);
 		case REG_EAX:  shadow_reg_[REG_EAX]=true; 
 		case REG_AX:   shadow_reg_[REG_AX]=true; 
-		case REG_AH:   shadow_reg_[REG_AH]=true;; 
+		case REG_AH:   shadow_reg_[REG_AH]=true;
 		case REG_AL:   shadow_reg_[REG_AL]=true; 
 			       break;
 
@@ -162,10 +167,10 @@ bool ShadowReg::taintREG(REG reg)
 			       break;
 
 		default:
-			       cout << "\t\t\t" << REG_StringShort(reg) << " can't be tainted" << endl;
+			       D(cout << "\t\t\t--" << REG_StringShort(reg) << " can't be tainted" << endl;)
 			       return false;
 	}
-	cout << "\t\t\t" << REG_StringShort(reg) << " is now tainted" << endl;
+	D(cout << "\t\t\t--" << REG_StringShort(reg) << " is now tainted" << endl;)
 	return true;
 }
 
@@ -236,6 +241,6 @@ bool ShadowReg::removeREG(REG reg)
 		default:
 			       return false;
 	}
-	cout << "\t\t\t" << REG_StringShort(reg) << " is now freed" << endl;
+	D(cout << "\t\t\t--" << REG_StringShort(reg) << " is now freed" << endl;)
 	return true;
 }

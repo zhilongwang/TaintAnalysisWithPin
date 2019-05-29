@@ -36,7 +36,7 @@ char * readstr(char *str){
 	return str;
 }
 int main(){
-	uint i,j=30;
+	uint i,j,cont=30;
 	int p[4];
 	char input[20];
 	readstr(input);
@@ -44,20 +44,34 @@ int main(){
 	readstr(input);
 	p[1]=myatoi(input);
 	readstr(input);
-	int len=strlen(input);
 	p[2]=myatoi(input);
-	p[2]=32;
-	p[3]=p[2];
-	for(i=3;i<p[3];i++){
-		if(p[2]%i==0){
-			p[i]=p[0];
-		}
+	if(p[0]%2==0){
+		cont++;
 	}
-	for(i=0;i<p[0];i++){	
-		if(j>p[1]){
+	if(p[1]%3==0){
+		cont++;
+	}
+	if(p[2]%3==0){
+		cont++;
+	}
+	if((p[0]<p[1]) || (p[0]-p[1]) < 5 ){
+		p[0]++;
+	}else{
+		p[1]++;
+		cont++;
+	}
+	if((p[0]+p[1])<10 && (p[1]-p[0]) > 5 ){
+		p[2]=(p[0]+p[1])/2;
+		cont++;
+	}
+	else{
+		p[2]=(p[0]+p[1]+p[2])/2;
+	}
+	for(i=0;i<2;i++){	
+		if(cont>p[1]){
 			if(j>i){
-				if((len<i)||len>j){
-					len++;
+				if((cont<i)||cont>j){
+					cont++;
 				}
 			}
 		}

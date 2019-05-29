@@ -7,7 +7,7 @@ using std::string;
 string GetREGName(REG reg);
 class ShadowReg{
 private:
-    bool shadow_reg_[100]={false};
+    bool shadow_reg_[287]={false};
 public:
 
     bool checkREG(REG reg);

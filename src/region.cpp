@@ -1,6 +1,12 @@
 #include "region.h"
 #include "pin.H"
 
+#define __DEBUG
+#ifdef __DEBUG
+#define DEBUG(format,...) printf(format,##__VA_ARGS__)
+#else
+#define DEBUG(format,...)
+#endif
 /* ===================================================================== */
 /* funcions for getting region info */
 /* ===================================================================== */
@@ -23,25 +29,25 @@ RegionInfo::RegionInfo()
 		//printf("%s", line);
 		if (timescode == 0 && strstr(line, "r-xp")) {
 			sscanf(strndup(line, 1+2*LEN_ADDR), "%x-%x", &regions_[CODE].base, &regions_[CODE].end);
-			//printf("%x and %x\n", regions_[CODE].base, regions_[CODE].end);
+			DEBUG("CODE REGION:%x and %x\n", regions_[CODE].base, regions_[CODE].end);
 			regions_[CODE].type = CODE;
 			timescode++;
 		}
 		if (timesdata == 0 && strstr(line, "rwxp")) {
 			sscanf(strndup(line, 1+2*LEN_ADDR), "%x-%x", &regions_[GLOBAL].base, &regions_[GLOBAL].end);
-			//printf("%x and %x\n", regions_[GLOBAL].base, regions_[GLOBAL].end);
+			DEBUG("DATA REGION:%x and %x\n", regions_[GLOBAL].base, regions_[GLOBAL].end);
 			regions_[GLOBAL].type = GLOBAL;
 			timesdata++;
 		}
 		if (strstr(line, "[stack")) {
 			sscanf(strndup(line, 1+2*LEN_ADDR), "%x-%x", &regions_[STACK].base, &regions_[STACK].end);
 			regions_[STACK].type = STACK;
-			//printf("%x and %x\n", regions_[STACK].base, regions_[STACK].end);
+			DEBUG("STACK REGION:%x and %x\n", regions_[STACK].base, regions_[STACK].end);
 		}
 		if (strstr(line, "[heap")) {
 			sscanf(strndup(line, 1+2*LEN_ADDR), "%x-%x", &regions_[HEAP].base, &regions_[HEAP].end);
 			regions_[HEAP].type = HEAP;
-			//printf("%x and %x\n", regions_[HEAP].base, regions_[HEAP].end);
+			DEBUG("HEAP REGION:%x and %x\n", regions_[HEAP].base, regions_[HEAP].end);
 		} 
 	} 
 	//KNOB<BOOL>   KnobNoCompress(KNOB_MODE_WRITEONCE, "pintool","no_compress", "0", "Do not compress");

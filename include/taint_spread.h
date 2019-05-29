@@ -17,11 +17,11 @@ using std::hex;
 				source_is_tainted = true;   \
 			}   
 
-#define CASE_TAINT_REG_(N)                      \
+#define CASE_TAINT_REG_(N,M)                      \
 		case N:                                 \
-				shadow_reg->taintREG(reg_##N);  
+				shadow_reg->taintREG(reg_##M);  
 
-#define CASE_REMOVE_REG_(N)                     \
+#define CASE_REMOVE_REG_(N,M)                     \
         case N:                                 \
 				shadow_reg->removeREG(reg_##N); 
 
@@ -54,6 +54,8 @@ VOID OneRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1);
 VOID TwoRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG reg_2);
 VOID ThreeRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG reg_2, REG reg_3);
 VOID FourRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG reg_2, REG reg_3, REG reg_4);
+
+VOID Mem2Mem(VOID * ip, string assemble, VOID * read_addr, UINT32 read_size, VOID * write_addr, UINT32 write_size);
 // VOID ReadMEM(ShadowMem &shadow_mem,ShadowReg &shadow_reg, UINT32 insAddr,  string insDis, UINT32 OperandCount,REG reg_r, UINT32 memOp, UINT32 sp);
 // VOID WriteMEM(ShadowMem &shadow_mem,ShadowReg &shadow_reg, UINT32 insAddr,  string insDis, UINT32 OperandCount,REG reg_r, REG reg_0,UINT32 memOp, UINT32 sp);
 // VOID SpreadREG(ShadowMem &shadow_mem,ShadowReg &shadow_reg, UINT32 insAddr,  string insDis, UINT32 OperandCount,REG reg_r, REG reg_w);

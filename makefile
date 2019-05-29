@@ -28,8 +28,24 @@ ${OBJDIR}/taint.so : $(OBJECTS)
 $(OBJECTS) : %.o: %.cpp 
 	g++ ${INCLUDE_PATH} ${CXXFLAGS}  ${ISYSTEM_PATH} -c -o $@ $<
 
-run:
-	 ../../../pin -t obj-ia32/taint.so -- test/test
+exam3:
+	../../../pin -t obj-ia32/taint.so -- test/exam3
+
+exam2:
+	../../../pin -t obj-ia32/taint.so -- test/exam2
+
+exam1:
+	../../../pin -t obj-ia32/taint.so -- test/exam1
+
+
+exam1.1:
+	../../../pin -t obj-ia32/taint.so -- test/exam1.1
+
+gdb:
+	gdb ../../../intel64/bin/pinbin
+
+debug_exam3:
+	../../../pin -pause_tool 20 -t obj-ia32/taint.so -- test/exam3
 
 clean:
 	rm -rf src/*.o

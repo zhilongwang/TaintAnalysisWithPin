@@ -11,13 +11,13 @@ typedef enum RegionType {
 	STACK,
 	CODE,
 	NO_REGION,
-}Region_type;
+}RegionType;
 
 typedef struct Region{
 	RegionType type;
 	unsigned base;
 	unsigned end;
-}REGIN_Tnfo;
+}Region;
 
 class RegionInfo{
 private:
@@ -26,5 +26,8 @@ private:
 public:
 	RegionInfo();
 	RegionType AddrRegion(ADDRINT addr);
+	Region* GetRegions(){
+		return regions_;
+	}
 };
 #endif

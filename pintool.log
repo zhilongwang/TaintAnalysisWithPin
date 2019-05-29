@@ -1,4 +1,0 @@
-Pin: pin-3.7-97619-0d0c92f4f
-Copyright (c) 2003-2018, Intel Corporation. All rights reserved.
-A:  Source/pin/core_ia32/operand_ia32.cpp: INS_OperandRead: 579: assertion failed: n < xed_inst_noperands(xedi)
-
