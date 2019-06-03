@@ -11,9 +11,9 @@ extern "C" {
 using std::string;
 using std::cout;
 
-//#define __DEBUG_ANALYIZE
-//#define __DEGUG_TRACE
-//#define __DEGUG_SINK
+#define __DEBUG_ANALYIZE
+#define __DEGUG_TRACE
+#define __DEGUG_SINK
 
 
 
