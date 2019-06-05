@@ -12,7 +12,7 @@ AFUNPTR CheckRegOnly[] =
 };
 AFUNPTR CheckMemAndReg[] =
 {
-	NULL, AFUNPTR(CheckOneRegOneMem),AFUNPTR(CheckTwoRegOneMem)
+	AFUNPTR(CheckZeroRegOneMem), AFUNPTR(CheckOneRegOneMem),AFUNPTR(CheckTwoRegOneMem)
 };
 bool AddCmpSinkFunction(INS ins){
     UINT32 operands_count = INS_OperandCount(ins);
@@ -33,7 +33,7 @@ bool AddCmpSinkFunction(INS ins){
             }
         }
     }
-    if(INS_IsMemoryRead(ins) && read_reg_count > 0 && read_reg_count < 3){
+    if(INS_IsMemoryRead(ins) && read_reg_count < 3){
         D(cout << "[CheckMemAndReg]:" << endl;)
         INS_InsertCall(
             ins, IPOINT_BEFORE, CheckMemAndReg[read_reg_count],
@@ -77,10 +77,10 @@ bool TaintSink(INS ins){
     switch(INS_Opcode(ins)){
         case XED_ICLASS_CMP :
         case XED_ICLASS_TEST :
-        // case XED_ICLASS_CMPSB :
-        // case XED_ICLASS_CMPSW :
-        // case XED_ICLASS_CMPSD :
-        // case XED_ICLASS_CMPSQ :
+        case XED_ICLASS_CMPSB :
+        case XED_ICLASS_CMPSW :
+        case XED_ICLASS_CMPSD :
+        case XED_ICLASS_CMPSQ :
             did_add_check_fun = AddCmpSinkFunction(ins);
             break;
 		case XED_ICLASS_CALL_FAR:

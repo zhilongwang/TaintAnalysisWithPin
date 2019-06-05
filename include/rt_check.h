@@ -47,6 +47,7 @@ VOID CheckIndirectCall(VOID * ip, string assemble, REG reg_1);
 
 VOID CheckOneReg(VOID * ip, string assemble, REG reg_1);
 VOID CheckTwoReg(VOID * ip, string assemble, REG reg_1, REG reg_2);
+VOID CheckZeroRegOneMem(VOID * ip, string assemble, VOID * addr, UINT32 size);
 VOID CheckOneRegOneMem(VOID * ip, string assemble, VOID * addr, UINT32 size, REG reg_1);
 VOID CheckTwoRegOneMem(VOID * ip, string assemble, VOID * addr, UINT32 size, REG reg_1, REG reg_2);
 class SinkInfo{

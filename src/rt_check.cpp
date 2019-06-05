@@ -25,7 +25,6 @@ VOID CheckIndirectCall(VOID * ip, string assemble, REG reg_1){
     return;
 }
 
-
 VOID CheckOneReg(VOID * ip, string assemble, REG reg_1){
 	D(cout << hex<< "CheckOneReg: "<<ip << "\t"<< assemble  << endl;)
     if(shadow_reg->checkREG(reg_1)){
@@ -37,6 +36,16 @@ VOID CheckOneReg(VOID * ip, string assemble, REG reg_1){
 VOID CheckTwoReg(VOID * ip, string assemble, REG reg_1, REG reg_2){
 	D(cout << hex<< "CheckTwoReg: "<<ip << "\t"<< assemble  << endl;)
     if(shadow_reg->checkREG(reg_1) || shadow_reg->checkREG(reg_2) ){
+        D(cout << "branch instruction" << endl;)
+        sink_info->AddSinkPoint(CONTROL_DEPENDENCY_SINK,(UINT32)ip);
+    }
+	return;
+}
+
+VOID CheckZeroRegOneMem(VOID * ip, string assemble, VOID * addr, UINT32 size){
+	D(cout << hex<< "CheckZeroRegOneMem: "<<ip << "\t"<< assemble  << endl;)
+    D(cout << hex << "\t\t\t--" << "read:" << addr << endl;)
+    if(shadow_mem->CheckTaint((UINT32)addr, size)){
         D(cout << "branch instruction" << endl;)
         sink_info->AddSinkPoint(CONTROL_DEPENDENCY_SINK,(UINT32)ip);
     }

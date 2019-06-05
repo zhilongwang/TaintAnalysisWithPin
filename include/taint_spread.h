@@ -23,7 +23,7 @@ using std::hex;
 
 #define CASE_REMOVE_REG_(N,M)                     \
         case N:                                 \
-				shadow_reg->removeREG(reg_##N); 
+				shadow_reg->removeREG(reg_##M); 
 
 typedef struct Mem_Data_Flow{
     enum AccessType accesstype;

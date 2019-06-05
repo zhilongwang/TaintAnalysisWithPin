@@ -28,6 +28,9 @@ ${OBJDIR}/taint.so : $(OBJECTS)
 $(OBJECTS) : %.o: %.cpp 
 	g++ ${INCLUDE_PATH} ${CXXFLAGS}  ${ISYSTEM_PATH} -c -o $@ $<
 
+exam3.1:
+	../../../pin -t obj-ia32/taint.so -- ../TaintTest/test/exam3
+
 exam3:
 	../../../pin -t obj-ia32/taint.so -- test/exam3
 
