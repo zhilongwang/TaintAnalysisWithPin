@@ -44,6 +44,7 @@ VOID CheckTwoReg(VOID * ip, string assemble, REG reg_1, REG reg_2){
 }
 VOID CheckOneRegOneMem(VOID * ip, string assemble, VOID * addr, UINT32 size, REG reg_1){
 	D(cout << hex<< "CheckOneRegOneMem: "<<ip << "\t"<< assemble  << endl;)
+    D(cout << hex << "\t\t\t--" << "read:" << addr << endl;)
     if(shadow_mem->CheckTaint((UINT32)addr, size) || shadow_reg->checkREG(reg_1) ){
         D(cout << "branch instruction" << endl;)
         sink_info->AddSinkPoint(CONTROL_DEPENDENCY_SINK,(UINT32)ip);

@@ -20,12 +20,13 @@ bool AddCmpSinkFunction(INS ins){
     IARGLIST args = IARGLIST_Alloc();
 
     REG pin_base_reg = INS_MemoryBaseReg(ins);
+    REG pin_index_reg = INS_MemoryIndexReg(ins);// index address register
     REG pin_ss_reg = REG_SEG_SS;
     REG pin_gs_reg = REG_SEG_GS;
     for(UINT32 i=0; i<operands_count; i++){
         if(INS_OperandRead(ins, i) && INS_OperandIsReg(ins, i)){
             REG reg = INS_OperandReg(ins, i);
-            if( (reg!= pin_base_reg) && (reg < pin_ss_reg || reg > pin_gs_reg)){
+            if( (reg!= pin_base_reg) && (reg!= pin_index_reg) && (reg < pin_ss_reg || reg > pin_gs_reg)){
                 read_reg_count++;
                 D(cout << "--read reg:" << i << ":" << REG_StringShort(reg)<< endl;)
                 IARGLIST_AddArguments(args, IARG_UINT32, reg, IARG_END);
@@ -76,10 +77,10 @@ bool TaintSink(INS ins){
     switch(INS_Opcode(ins)){
         case XED_ICLASS_CMP :
         case XED_ICLASS_TEST :
-        case XED_ICLASS_CMPSB :
-        case XED_ICLASS_CMPSW :
-        case XED_ICLASS_CMPSD :
-        case XED_ICLASS_CMPSQ :
+        // case XED_ICLASS_CMPSB :
+        // case XED_ICLASS_CMPSW :
+        // case XED_ICLASS_CMPSD :
+        // case XED_ICLASS_CMPSQ :
             did_add_check_fun = AddCmpSinkFunction(ins);
             break;
 		case XED_ICLASS_CALL_FAR:

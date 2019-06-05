@@ -72,66 +72,60 @@ VOID Instruction(INS ins)
 	if(INS_OperandCount(ins) <= 1){ //One Operand does not incurs data spread.
 		return ;
 	}
-	//print_memops(xedd);
-	if(INS_IsMemoryRead(ins) && INS_IsMemoryWrite(ins)){
+	if(INS_IsMemoryRead(ins) && INS_IsMemoryWrite(ins)){ //memory to memory 
 		//cout << hex << INS_Address(ins) << ":\t"<<INS_Disassemble(ins) << endl;
 		D(cout << "MemoryRead && Memory Write" << endl;)
 		D(cout << "--*->*"<< endl;)
 		INS_InsertCall(
-					ins, IPOINT_BEFORE, (AFUNPTR)Mem2Mem,
-					IARG_INST_PTR, 
-					IARG_PTR, new string(INS_Disassemble(ins)),
-					IARG_MEMORYREAD_EA,
-					IARG_MEMORYREAD_SIZE,
-					IARG_MEMORYWRITE_EA,
-					IARG_MEMORYWRITE_SIZE,
-					IARG_END);
-	}else if(INS_IsMemoryRead(ins)){
+			ins, IPOINT_BEFORE, (AFUNPTR)Mem2Mem,
+			IARG_INST_PTR, 
+			IARG_PTR, new string(INS_Disassemble(ins)),
+			IARG_MEMORYREAD_EA,
+			IARG_MEMORYREAD_SIZE,
+			IARG_MEMORYWRITE_EA,
+			IARG_MEMORYWRITE_SIZE,
+			IARG_END);
+	}else if(INS_IsMemoryRead(ins)){ //one memory to register
 		D(cout << "[Memory2Reg]:" << endl;)
 		UINT32 write_reg_count = INS_MaxNumWRegs(ins);
 		if(write_reg_count > 0 && write_reg_count <= MAX_WRITE_REGS ){
 			IARGLIST args = IARGLIST_Alloc();
 			for (UINT32 i = 0; i < write_reg_count; i++){
 				REG reg =  INS_RegW(ins, i);
-				
 				D(cout << "--write reg:" << i << ":" << REG_StringShort(reg)<< endl;)
 				IARGLIST_AddArguments(args, IARG_UINT32, reg, IARG_END);
 			}
 			D(cout << "--*->*"<< endl;)
 			INS_InsertCall(
-						ins, IPOINT_BEFORE, Mem2Reg[write_reg_count],
-						IARG_INST_PTR, 
-						IARG_PTR, new string(INS_Disassemble(ins)),
-						IARG_MEMORYREAD_EA,
-						IARG_MEMORYREAD_SIZE,
-						IARG_IARGLIST, args,
-						IARG_END);
+				ins, IPOINT_BEFORE, Mem2Reg[write_reg_count],
+				IARG_INST_PTR, 
+				IARG_PTR, new string(INS_Disassemble(ins)),
+				IARG_MEMORYREAD_EA,
+				IARG_MEMORYREAD_SIZE,
+				IARG_IARGLIST, args,
+				IARG_END);
 			IARGLIST_Free(args);
 		}
-	}else if(INS_HasMemoryRead2(ins)){
+	}else if(INS_HasMemoryRead2(ins)){ //two memory to register
 		// cout << hex << INS_Address(ins) << ":\t"<<INS_Disassemble(ins) << endl;
 		D(cout << "[DoubleMemory2Reg]:" << endl;)
-	}else if(INS_IsMemoryWrite(ins)){ 
+	}else if(INS_IsMemoryWrite(ins)){  //register to memeory
 		D(cout << "[Reg2Mem]:" << endl;)
 
-		//using intel xed engine to get more information about the instruction. 
-		// xed_decoded_inst_t* xedd = INS_XedDec(ins);
-		// xed_reg_enum_t xed_seg_reg = XED_STATIC_CAST(xed_reg_enum_t,xed3_operand_get_seg0(xedd));
-		// xed_reg_enum_t xed_base_reg = XED_STATIC_CAST(xed_reg_enum_t,xed3_operand_get_base0(xedd));
-		// REG pin_seg_reg = (xed_seg_reg == XED_REG_INVALID)? PIN_REG_INVALID : INS_XedExactMapToPinReg(xed_seg_reg);
-		// REG pin_base_reg = (xed_base_reg == XED_REG_INVALID)? PIN_REG_INVALID : INS_XedExactMapToPinReg(xed_base_reg);
-		REG pin_base_reg = INS_MemoryBaseReg(ins);
-		REG pin_ss_reg = REG_SEG_SS;
-		REG pin_gs_reg = REG_SEG_GS;
-		UINT32 base_and_seg_reg_exclusive_count = 0;
+		REG pin_base_reg = INS_MemoryBaseReg(ins);// base address register
+		REG pin_index_reg = INS_MemoryIndexReg(ins);// index address register
+		//segment registers....
+		REG pin_ss_reg = REG_SEG_SS; 
+		REG pin_gs_reg = REG_SEG_GS; 
+		UINT32 addressing_reg_exclusive_count = 0;
 		UINT32 read_reg_count = INS_MaxNumRRegs(ins);
 		if(read_reg_count <= MAX_READ_REGS ){
 			IARGLIST args = IARGLIST_Alloc();
 			for (UINT32 i = 0; i < read_reg_count; i++)
 			{
 				REG reg =  INS_RegR(ins, i);
-				if(INS_RegRContain(ins, reg) && (reg!= pin_base_reg) && (reg < pin_ss_reg || reg > pin_gs_reg)){ //non implicit read operand.
-					base_and_seg_reg_exclusive_count++;
+				if(INS_RegRContain(ins, reg) && (reg!= pin_base_reg) && (reg!= pin_index_reg) && (reg < pin_ss_reg || reg > pin_gs_reg)){ //non implicit read operand.
+					addressing_reg_exclusive_count++;
 					D(cout << "--read reg:" << i << ":" << REG_StringShort(reg)<< endl;)
 					IARGLIST_AddArguments(args, IARG_UINT32, reg, IARG_END);
 				}else{
@@ -140,26 +134,48 @@ VOID Instruction(INS ins)
 			}
 			D(cout << "--*->*"<< endl;)
 			INS_InsertCall(
-						ins, IPOINT_BEFORE, Reg2Mem[base_and_seg_reg_exclusive_count],
-						IARG_INST_PTR, 
-						IARG_PTR, new string(INS_Disassemble(ins)),
-						IARG_MEMORYWRITE_EA,
-						IARG_MEMORYWRITE_SIZE,
-						IARG_IARGLIST, args,
-						IARG_END);
+				ins, IPOINT_BEFORE, Reg2Mem[addressing_reg_exclusive_count],
+				IARG_INST_PTR, 
+				IARG_PTR, new string(INS_Disassemble(ins)),
+				IARG_MEMORYWRITE_EA,
+				IARG_MEMORYWRITE_SIZE,
+				IARG_IARGLIST, args,
+				IARG_END);
 			IARGLIST_Free(args);
 		}
-	}else {
+	}else {       //register only
 		D(cout << "[RegisterOnly]:" << endl;)
+		REG pin_base_reg = INS_MemoryBaseReg(ins);// base address register
+		REG pin_index_reg = INS_MemoryIndexReg(ins);// index address register
+		// D(cout << "base reg:" << REG_StringShort(pin_base_reg)<< endl;)
+		// D(cout << "index reg:" << REG_StringShort(pin_index_reg)<< endl;)
+		switch(INS_Opcode(ins)){
+			case XED_ICLASS_LEA://e.g., lea    0x4(%eax),%edx
+				pin_base_reg = REG_INVALID_;
+				break;
+			default:
+				;
+		}
+		//segment registers....
+		REG pin_ss_reg = REG_SEG_SS; 
+		REG pin_gs_reg = REG_SEG_GS; 
+		UINT32 addressing_reg_exclusive_count = 0;
 		UINT32 read_reg_count = INS_MaxNumRRegs(ins);
 		UINT32 write_reg_count = INS_MaxNumWRegs(ins);
 		if(read_reg_count + write_reg_count > 0 && read_reg_count + write_reg_count <= MAX_RW_REGS ){
 			IARGLIST args = IARGLIST_Alloc();
+			//get all read register(addressing register exclusive)
 			for(UINT32 i=0; i<read_reg_count; i++){
 				REG reg =  INS_RegR(ins, i);
-				D(cout << "--read reg:" << i << ":" << REG_StringShort(reg)<< endl;)
-				IARGLIST_AddArguments(args, IARG_UINT32, reg, IARG_END);
+				if(INS_RegRContain(ins, reg) && (reg!= pin_base_reg) && (reg!= pin_index_reg) && (reg < pin_ss_reg || reg > pin_gs_reg)){
+					addressing_reg_exclusive_count++;
+					D(cout << "--read reg:" << i << ":" << REG_StringShort(reg)<< endl;)
+					IARGLIST_AddArguments(args, IARG_UINT32, reg, IARG_END);
+				}else{
+					D(cout << "??read reg:" << i << ":" << REG_StringShort(reg)<< endl;)
+				}
 			}
+			//get all write register
 			for (UINT32 i = 0; i < write_reg_count; i++)
 			{
 				REG reg =  INS_RegW(ins, i);
@@ -168,12 +184,12 @@ VOID Instruction(INS ins)
 			}
 			D(cout << "--*->*"<< endl;)
 			INS_InsertCall(
-						ins, IPOINT_BEFORE, Reg2Reg[read_reg_count + write_reg_count],
-						IARG_INST_PTR, 
-						IARG_PTR, new string(INS_Disassemble(ins)),
-						IARG_UINT32, read_reg_count,
-						IARG_IARGLIST, args,
-						IARG_END);
+				ins, IPOINT_BEFORE, Reg2Reg[addressing_reg_exclusive_count + write_reg_count],
+				IARG_INST_PTR, 
+				IARG_PTR, new string(INS_Disassemble(ins)),
+				IARG_UINT32, addressing_reg_exclusive_count,
+				IARG_IARGLIST, args,
+				IARG_END);
 			IARGLIST_Free(args);
 		}
 	}

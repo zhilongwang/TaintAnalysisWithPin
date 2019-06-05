@@ -68,7 +68,7 @@ public:
         sink_points_.sort();
         sink_points_.unique();
         for(enum SinkType t=CONTROL_DEPENDENCY_SINK; t<UNDEFINED_SINK; t=(SinkType)(t+1)){
-            std::cout << "\n\tType: " << GetSinkTypeName(t) << "Sink Information"<< endl;
+            std::cout << std::hex << "\n\t" << "*****************"<< GetSinkTypeName(t) <<"*****************" << std::endl;
             UINT32 format_control = 0;
             for(it = sink_points_.begin(); it != sink_points_.end(); it++){
                 SinkPoint sink_point = *it;

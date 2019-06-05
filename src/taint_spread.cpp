@@ -50,8 +50,8 @@ VOID MemTo3Reg(VOID * ip, string assemble, VOID * addr, UINT32 size, REG w_reg_1
 	return;
 }
 VOID ZeroReg2Mem(VOID * ip, string assemble, VOID * addr, UINT32 size){
-	D(cout << hex << "\t\t\t--" << "write:" << addr << endl;)
 	D(cout << hex<< "ZeroReg2Mem: "<<ip << "\t"<< assemble  << endl;)
+	D(cout << hex << "\t\t\t--" << "write:" << addr << endl;)
 	shadow_mem->RemoveTaint((UINT32)addr, size);
 	return;
 }
@@ -99,7 +99,7 @@ VOID OneRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1){
 
 VOID TwoRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG reg_2){
 	D(cout << hex<< "Reg2Reg(2): "<<ip << "\t"<< assemble  << endl;)
-	D(cout << hex << "read_reg_num:" << read_reg_num << endl;)
+	D(cout << hex << "\t\t\t--" << "read_reg_num:" << read_reg_num << endl;)
 	bool source_is_tainted = false;
 	switch(read_reg_num){
 		CASE_CHECK_REG_(2)
@@ -133,6 +133,7 @@ VOID TwoRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG reg
 
 VOID ThreeRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG reg_2, REG reg_3){
 	D(cout << hex<< "Reg2Reg(3): "<<ip << "\t"<< assemble  << endl;)
+	D(cout << hex << "\t\t\t--" << "read_reg_num:" << read_reg_num << endl;)
 	bool source_is_tainted = false;
 	switch(read_reg_num){
 		CASE_CHECK_REG_(3)
@@ -169,6 +170,7 @@ VOID ThreeRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG r
 
 VOID FourRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG reg_2, REG reg_3, REG reg_4){
 	D(cout << hex<< "Reg2Reg(1): "<<ip << "\t"<< assemble  << endl;)
+	D(cout << hex << "\t\t\t--" << "read_reg_num:" << read_reg_num << endl;)
 	bool source_is_tainted = false;
 	switch(read_reg_num){
 		CASE_CHECK_REG_(4)
@@ -206,7 +208,7 @@ VOID FourRegs(VOID * ip, string assemble, UINT32 read_reg_num, REG reg_1, REG re
 	return;
 }
 VOID Mem2Mem(VOID * ip, string assemble, VOID * read_addr, UINT32 read_size, VOID * write_addr, UINT32 write_size){
-	D(cout << hex<< "Mem2Mem: "<<ip << "\t"<< assemble  << endl;)
+	D(cout << hex<< "Mem2Mem: "<< ip << "\t"<< assemble  << endl;)
 	if(shadow_mem->CheckTaint((UINT32)read_addr, read_size)){
 		shadow_mem->AddTaint((UINT32)write_addr, write_size);
 	}else{
