@@ -3,11 +3,13 @@
 #include "register.h"
 #include "debug.h"
 #include "instruction.h"
+using std::endl;
 #ifdef __DEGUG_SINK
 #define D(x) x
 #else 
 #define D(x)
 #endif
+
 
 extern ShadowMem* shadow_mem;
 extern ShadowReg* shadow_reg;

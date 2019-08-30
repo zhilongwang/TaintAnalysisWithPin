@@ -17,6 +17,7 @@ extern "C" {
 using std::cout;
 using std::hex;
 using std::cerr;
+using std::endl;
 #ifdef __DEBUG_ANALYIZE
 #define D(x) x
 #else 

@@ -3,6 +3,7 @@
 #include "pin.H"
 #include "debug.h"
 #include "instruction.h"
+using std::endl;
 #ifdef __DEGUG_TRACE
 #define D(x) x
 #else 

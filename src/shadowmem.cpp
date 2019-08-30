@@ -5,7 +5,8 @@
 #include<iostream>
 using std::string;
 using std::iostream;
-
+using std::endl;
+using std::cerr;
 #ifdef __DEBUG_ANALYIZE
 #define D(x) x
 #else 

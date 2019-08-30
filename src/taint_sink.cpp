@@ -1,6 +1,7 @@
 #include "taint_sink.h"
 #include "rt_check.h"
 #include "debug.h"
+using std::endl;
 #ifdef __DEBUG_ANALYIZE
 #define D(x) x
 #else 

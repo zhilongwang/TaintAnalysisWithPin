@@ -8,7 +8,7 @@
 using std::cout;
 using std::string;
 using std::hex;
-
+using std::list;
 typedef enum SinkType{
     CONTROL_DEPENDENCY_SINK =  0,
     INDIRECT_CALL_SINK,
@@ -71,7 +71,7 @@ public:
         for(enum SinkType t=CONTROL_DEPENDENCY_SINK; t<UNDEFINED_SINK; t=(SinkType)(t+1)){
             std::cout << std::hex << "\n\t" << "*****************"<< GetSinkTypeName(t) <<"*****************" << std::endl;
             UINT32 format_control = 0;
-            for(it = sink_points_.begin(); it != sink_points_.end(); it++){
+            for(auto it = sink_points_.begin(); it != sink_points_.end(); it++){
                 SinkPoint sink_point = *it;
                 if(sink_point.type == t){
                     std::cout << std::hex<<"\t"<< sink_point.addr;

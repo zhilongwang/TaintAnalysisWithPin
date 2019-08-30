@@ -4,6 +4,7 @@
 #include<iostream>
 using std::string;
 using std::iostream;
+using std::endl;
 
 #ifdef __DEBUG_ANALYIZE
 #define D(x) x
