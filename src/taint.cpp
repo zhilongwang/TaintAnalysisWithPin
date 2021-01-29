@@ -32,6 +32,7 @@ RegionInfo* region_info;
 ShadowMem* shadow_mem;
 ShadowReg* shadow_reg;
 SinkInfo* sink_info;
+InputHandler* input_handler;
 extern bool outflag;
 
 AFUNPTR Mem2Reg[] =
@@ -221,16 +222,29 @@ static void Image(IMG img, VOID *v)
 	{
 		return;
 	}
-	for( SEC sec=IMG_SecHead(img); SEC_Valid(sec) ; sec=SEC_Next(sec) )
-	{
+	RTN mainRtn = RTN_FindByName(img, "main");
+	if (RTN_Valid(mainRtn))
+    {
+        RTN_Open(mainRtn);
+		cout << "SEC = " << RTN_Name(mainRtn) << endl;
+        // Instrument malloc() to print the input argument value and the return value.
+        RTN_InsertCall(mainRtn, IPOINT_BEFORE, (AFUNPTR)MainArg,
+                       IARG_FUNCARG_ENTRYPOINT_VALUE, 0,
+					   IARG_FUNCARG_ENTRYPOINT_VALUE, 1,
+                       IARG_END);
 
-		if ( SEC_IsExecutable(sec) && strcmp(SEC_Name(sec).c_str(),".text")==0 )
-		{
-			D(cout << "SEC = " << SEC_Name(sec) << endl;)
-			for( RTN rtn=SEC_RtnHead(sec); RTN_Valid(rtn); rtn=RTN_Next(rtn) )
-				Routine(rtn,v);
-		}
-	}
+        RTN_Close(mainRtn);
+    }
+	// for( SEC sec=IMG_SecHead(img); SEC_Valid(sec) ; sec=SEC_Next(sec) )
+	// {
+
+	// 	if ( SEC_IsExecutable(sec) && strcmp(SEC_Name(sec).c_str(),".text")==0 )
+	// 	{
+	// 		D(cout << "SEC = " << SEC_Name(sec) << endl;)
+	// 		for( RTN rtn=SEC_RtnHead(sec); RTN_Valid(rtn); rtn=RTN_Next(rtn) )
+	// 			Routine(rtn,v);
+	// 	}
+	// }
 }
 /* ===================================================================== */
 VOID TAINT_Init(){
@@ -239,6 +253,7 @@ VOID TAINT_Init(){
 	shadow_mem = new ShadowMem();
 	shadow_reg = new ShadowReg();
 	sink_info = new SinkInfo();
+	input_handler = new InputHandler();
 }
 VOID Fini(INT32 code, VOID *v)
 {
@@ -246,6 +261,7 @@ VOID Fini(INT32 code, VOID *v)
 
 	sink_info->PrintSinkInfo();
 	shadow_mem->PrintTaint(region_info, GLOBAL);
+	
 }
   
   
@@ -274,9 +290,10 @@ int  main(int argc, char *argv[])
 			"#\n");
 	TraceFile.write(trace_header.c_str(),trace_header.size());
 */
-	PIN_AddSyscallEntryFunction(Syscall_entry, 0);
 	IMG_AddInstrumentFunction(Image, 0);
-	//TRACE_AddInstrumentFunction(Trace, 0);
+	PIN_AddSyscallEntryFunction(Syscall_entry, 0);
+	PIN_AddSyscallExitFunction (Syscall_exit, 0);
+	// IMG_AddInstrumentFunction(Image, 0);
 	PIN_AddFiniFunction(Fini, 0);
 
 	// Never returns

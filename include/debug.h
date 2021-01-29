@@ -20,7 +20,7 @@ using std::cout;
 #define GlobalTaint 0
 #define OutToFile 1
 #define FileName taintout.txt
-#define OutToScreen 1
+#define OutToScreen 0
 
 const string *Target2String(ADDRINT target);
 string *ADDRINT2str(ADDRINT value);

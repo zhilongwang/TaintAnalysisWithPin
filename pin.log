@@ -1,3 +1,3 @@
-Pin: pin-3.11-97998-7ecce2dac
+Pin: pin-3.10-97971-c5e41af74
 Copyright 2002-2019 Intel Corporation.
-E:  Error in running pin: (errno 2)/home/klaus/PIN/pin/ia32/bin/pinbin -p64 /home/klaus/PIN/pin/intel64/bin/pinbin -waiting_process 44540 -waiting_injector 44541 -sigchld_handler 1 -t obj-ia32/taint.so -- test/exam3
+E:  Unable to load obj-ia32/taint.so

@@ -1,0 +1,3 @@
+[submodule "pin"]
+	path = pin
+	url = https://github.com/zhilongwang/pin.git

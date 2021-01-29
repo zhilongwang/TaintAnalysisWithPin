@@ -8,14 +8,15 @@
 ifdef PIN_ROOT
 CONFIG_ROOT := $(PIN_ROOT)/source/tools/Config
 else
-CONFIG_ROOT := ../../..
+CONFIG_ROOT := ./pin
 endif
 #include $(CONFIG_ROOT)/makefile.config
 #include makefile.rules 
 #include $(TOOLS_ROOT)/Config/makefile.default.rules
+
 INCLUDE_PATH = -Iinclude -I$(CONFIG_ROOT)/source/include/pin -I$(CONFIG_ROOT)/source/include/pin/gen -isystem $(CONFIG_ROOT)/extras/stlport/include -isystem $(CONFIG_ROOT)/extras/libstdc++/include -isystem $(CONFIG_ROOT)/extras/crt/include -isystem $(CONFIG_ROOT)/extras/crt/include/arch-x86 -isystem $(CONFIG_ROOT)/extras/crt/include/kernel/uapi -isystem $(CONFIG_ROOT)/extras/crt/include/kernel/uapi/asm-x86 -I$(CONFIG_ROOT)/extras/components/include -I$(CONFIG_ROOT)/extras/xed-ia32/include/xed -I$(CONFIG_ROOT)/source/tools/InstLib
 CXXFLAGS = -std=c++11 -g3 -Wall  -Wno-unknown-pragmas -D__PIN__=1 -DPIN_CRT=1 -fno-stack-protector -fno-exceptions -funwind-tables -fasynchronous-unwind-tables -fno-rtti -DTARGET_IA32 -DHOST_IA32 -DTARGET_LINUX -fabi-version=2  -O3 -fomit-frame-pointer -fno-strict-aliasing -m32 
-ISYSTEM_PATH = -isystem $(CONFIG_ROOT)/extras/stlport/include -isystem $(CONFIG_ROOT)/extras/libstdc++/include -isystem $(CONFIG_ROOT)/extras/crt/include -isystem $(CONFIG_ROOT)/extras/crt/include/arch-x86_64 -isystem $(CONFIG_ROOT)/extras/crt/include/kernel/uapi -isystem $(CONFIG_ROOT)/extras/crt/include/kernel/uapi/asm-x86
+ISYSTEM_PATH = -isystem $(CONFIG_ROOT)/extras/stlport/include -isystem $(CONFIG_ROOT)/extras/libstdc++/include -isystem $(CONFIG_ROOT)/extras/crt/include -isystem $(CONFIG_ROOT)/extras/crt/include/arch-x86 -isystem $(CONFIG_ROOT)/extras/crt/include/kernel/uapi -isystem $(CONFIG_ROOT)/extras/crt/include/kernel/uapi/asm-x86
 LD_PATH = -L$(CONFIG_ROOT)/ia32/runtime/pincrt -L$(CONFIG_ROOT)/ia32/lib -L$(CONFIG_ROOT)/ia32/lib-ext -L$(CONFIG_ROOT)/extras/xed-ia32/lib -lpin -lxed $(CONFIG_ROOT)/ia32/runtime/pincrt/crtendS.o -lpin3dwarf  -ldl-dynamic -nostdlib -lstlport-dynamic -lm-dynamic -lc-dynamic -lunwind-dynamic
 LD_FLAGS = -g3 -shared -Wl,--hash-style=sysv $(CONFIG_ROOT)/ia32/runtime/pincrt/crtbeginS.o -Wl,-Bsymbolic -Wl,--version-script=$(CONFIG_ROOT)/source/include/pin/pintool.ver -fabi-version=2 -m32
 OBJDIR = obj-ia32
